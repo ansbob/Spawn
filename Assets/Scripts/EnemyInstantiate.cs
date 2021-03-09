@@ -15,13 +15,13 @@ public class EnemyInstantiate : MonoBehaviour
         Hole[] holes = GameObject.FindObjectsOfType<Hole>();
 
         int frames = 1800;
-        int framesPerInstantiate = 350;
+        int framesPerSpawn = 350;
 
         for (int i = 0; i <= frames; i++)
         {
-            if (i % framesPerInstantiate == 0)
+            if (i % framesPerSpawn == 0)
             {
-                Vector3 point = holes[i / framesPerInstantiate].transform.position;
+                Vector3 point = holes[i / framesPerSpawn].transform.position;
 
                 Instantiate(Enemy, point, Quaternion.identity);
             }
