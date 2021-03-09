@@ -5,7 +5,7 @@ public class EnemyInstantiate : MonoBehaviour
 {
     [SerializeField] private GameObject Enemy;
 
-    void Start()
+    private void Start()
     {
         StartCoroutine(CreateEnemies());
     }
