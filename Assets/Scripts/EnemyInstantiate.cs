@@ -1,11 +1,9 @@
-﻿using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyInstantiate : MonoBehaviour
 {
-    public GameObject Enemy;
+    [SerializeField] private GameObject Enemy;
 
     void Start()
     {
@@ -14,13 +12,16 @@ public class EnemyInstantiate : MonoBehaviour
 
     private IEnumerator CreateEnemies()
     {
-        GameObject[] holes = GameObject.FindGameObjectsWithTag("Hole");
+        Hole[] holes = GameObject.FindObjectsOfType<Hole>();
 
-        for(int i = 0; i != 1800; i++)
+        int frames = 1800;
+        int framesPerInstantiate = 350;
+
+        for (int i = 0; i <= frames; i++)
         {
-            if (i % 360 == 0)
+            if (i % framesPerInstantiate == 0)
             {
-                Vector3 point = holes[i / 360].transform.position;
+                Vector3 point = holes[i / framesPerInstantiate].transform.position;
 
                 Instantiate(Enemy, point, Quaternion.identity);
             }
